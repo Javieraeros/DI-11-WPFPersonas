@@ -24,5 +24,10 @@ namespace DI_11_WPFPersonas_UI
         {
             InitializeComponent();
         }
+
+        /*private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.txtNombre.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+        }*/
     }
 }

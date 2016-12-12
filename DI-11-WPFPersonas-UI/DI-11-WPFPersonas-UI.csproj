@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\MainPageVM.cs" />
+    <Compile Include="ViewModel\VMBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,6 +97,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DI-11-WPFPersonas-BL\DI-11-WPFPersonas-BL.csproj">
+      <Project>{5efd18c1-c33d-45d4-b4a8-8e2a85e156db}</Project>
+      <Name>DI-11-WPFPersonas-BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DI-11-WPFPersonas-ENT\DI-11-WPFPersonas-ENT.csproj">
+      <Project>{fbcea2b2-7db2-40c7-946e-16b3fadb1b92}</Project>
+      <Name>DI-11-WPFPersonas-ENT</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\borrar.png" />
+    <Resource Include="Imágenes\guardar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\nuevo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imágenes\equis.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
