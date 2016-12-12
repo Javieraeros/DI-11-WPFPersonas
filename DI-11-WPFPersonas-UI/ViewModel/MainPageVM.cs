@@ -182,7 +182,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
         private void NuevoCommand_Execute()
         {
             //Cambiamos la visibilidad de la lista
-            Visibilidad = Visibility.Hidden;
+            Visibilidad = Visibility.Collapsed;
             personaSeleccionada = new Persona();
             NotifyPropertyChanged("PersonaSeleccionada");
         }
