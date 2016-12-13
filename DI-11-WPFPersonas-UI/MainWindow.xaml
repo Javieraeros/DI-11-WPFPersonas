@@ -24,7 +24,7 @@
             <Button Command="{Binding nuevoCommand}" Visibility="{Binding Visibilidad}">
                 <Image Source="/Imágenes/nuevo.jpg"/>
             </Button>
-            <Button Command="{Binding deshacerCommand}">
+            <Button Command="{Binding deshacerCommand}" Visibility="{Binding VisibilidadDeshacer}">
                 <Image Source="/Imágenes/equis.jpg"/>
             </Button>
         </Menu>

@@ -19,6 +19,9 @@ namespace DI_11_WPFPersonas_UI.ViewModel
         private static ObservableCollection<Persona> listado;
         
         private Visibility visibilidad;
+        private Visibility visibilidadDeshacer;
+
+        private bool estoyEditando;
 
         private DelegateCommand _eliminarCommand;
 
@@ -38,6 +41,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
             _nuevoCommand = new DelegateCommand(NuevoCommand_Execute, NuevoCommand_CanExecute);
             _guardarCommand = new DelegateCommand(GuardarCommand_Execute, GuardarCommand_CanExecute);
             _deshacerCommand = new DelegateCommand(DeshacerCommand_Execute, DeshacerCommand_CanExecute);
+            visibilidadDeshacer = Visibility.Collapsed;
         }
 
         #endregion
@@ -79,6 +83,19 @@ namespace DI_11_WPFPersonas_UI.ViewModel
             {
                 visibilidad = value;
                 NotifyPropertyChanged("Visibilidad");
+            }
+        }
+
+        public Visibility VisibilidadDeshacer
+        {
+            get
+            {
+                return visibilidadDeshacer;
+            }
+            set
+            {
+                visibilidadDeshacer = value;
+                NotifyPropertyChanged("VisibilidadDeshacer");
             }
         }
 
@@ -134,6 +151,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
             ListadosBL misListados = new ListadosBL();
             try
             {
+                //ToDo Poner vista de tareas en casa
                 miManejadora.deletePersonaBL(personaSeleccionada.id);
                 listado = misListados.listadoPersonasBL();
                 NotifyPropertyChanged("Listado");
@@ -163,6 +181,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
                     miManejadora.updatePersonaBL(personaSeleccionada);
                 }else
                 {
+                    VisibilidadDeshacer = Visibility.Collapsed;
                     miManejadora.insertPersonaBL(personaSeleccionada);
                 }
                 listado = misListados.listadoPersonasBL();
@@ -183,6 +202,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
         {
             //Cambiamos la visibilidad de la lista
             Visibilidad = Visibility.Collapsed;
+            VisibilidadDeshacer = Visibility.Visible;
             personaSeleccionada = new Persona();
             NotifyPropertyChanged("PersonaSeleccionada");
         }
@@ -196,6 +216,7 @@ namespace DI_11_WPFPersonas_UI.ViewModel
         {
             //Cambiamos la visibilidad de la lista
             Visibilidad = Visibility.Visible;
+            VisibilidadDeshacer = Visibility.Collapsed;
             PersonaSeleccionada =null;
         }
         #endregion
